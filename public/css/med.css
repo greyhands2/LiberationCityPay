@@ -1,0 +1,45 @@
+
+@media (min-width: 576px) {
+   .sci {
+      min-width: 50%;
+       max-width: 50%;
+
+   }
+
+
+
+}
+
+
+@media (min-width: 768px) {
+
+
+    .sci {
+        min-width: 60%;
+        max-width: 60%;
+
+    }
+
+}
+
+
+@media (min-width: 992px) {
+
+    .sci {
+        min-width: 40%;
+        max-width: 40%;
+
+    }
+
+}
+
+
+@media (min-width: 1200px) {
+
+    .sci {
+        min-width: 40%;
+        max-width: 40%;
+
+    }
+
+}
