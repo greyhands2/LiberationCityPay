@@ -20,7 +20,7 @@
 
                         <div class="card-body" >
 
-                            <form id="myForm" method="post" name="form1" action="/UserPayDetailSubmit">
+                            <form id="myForm" method="post" name="form1" action="{{$aray_from_wildcard['url']}}">
                                 @csrf
                                 <div id="holder">
                                 <div class="form-group row">
@@ -77,7 +77,7 @@
                                 <input name="amount1" id="amount1"  type="hidden" value="{{$aray_from_wildcard['arr']['amount']}}" />
                                 <input name="currency" id="currency"  type="hidden" value="{{$aray_from_wildcard['arr']['currency']}}" />
                                 <input name="site_redirect_url" id="site_redirect_url"  type="hidden" value="{{$aray_from_wildcard['arr']['site_redirect_url']}}"/>
-                                <input name="txn_ref" type="hidden" id="trans_ref"  value="{{$aray_from_wildcard['arr']['transac_ref']}}" />
+                                <input name="txn_ref" type="hidden" id="txn_ref"  value="{{$aray_from_wildcard['arr']['transac_ref']}}" />
                                 <input name="cust_id" type="hidden" id="cust_id"  value="{{$aray_from_wildcard['arr']['cust_id']}}"/>
                                 <input name="site_name" type="hidden" id="site_name"  value="{{$aray_from_wildcard['arr']['site_name']}}"/>
                                 <input name="cust_name" type="hidden" id="cust_name"  value="{{$aray_from_wildcard['arr']['cust_name']}}" />
@@ -90,7 +90,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-12 col-sm-6 col-md-8 "><div class="form-group row">
                                             <div class="col-sm-10">
-                                                <input type="submit" id="submit"  value="Process"  style="border: 1px solid #800080; background-color: #400040;" class="btn btn-primary ">
+                                                <input type="button" id="submit"  value="Process"  style="width:90px; border: 1px solid #800080; background-color: #400040;" class="btn btn-primary ">
                                             </div>
                                         </div></div>
 
@@ -108,7 +108,12 @@
 
                             </form>
                         </div>
-                        <div class=" card-footer center"></div>
+
+
+
+
+
+                            <div id="feedback" class=" card-footer center" style="font-weight:bold; color:orange;"></div>
                     </div>
 
                 </div>

@@ -23,6 +23,7 @@
 
 @include('partials.footer')
 </body>
+
 @include('partials.js')
 @yield('javascript')
 </html>
