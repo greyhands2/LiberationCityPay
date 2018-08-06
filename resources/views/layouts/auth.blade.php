@@ -11,18 +11,16 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
 @include('partials.css')
 
-<!-- Scripts -->
+    <!-- Scripts -->
 
 
 </head>
 <body>
 
-@include('partials.header')
 
 @yield('content')
 
-@include('partials.footer')
+
 </body>
 @include('partials.js')
-@yield('javascript')
 </html>
