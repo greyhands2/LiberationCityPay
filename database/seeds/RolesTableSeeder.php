@@ -25,9 +25,8 @@ class RolesTableSeeder extends Seeder
                 'description' => ''
             ]
         ];
-        
-        foreach($roles as $serial => $role){
-            
+
+        foreach ($roles as $serial => $role) {
             \App\Role::create($role);
         }
     }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @include('partials.css')
-@include('header')
+@include('partials.header')
 @section('content')
     {{-- NOTE!!!! this view recieves all its data from the DirectToRightPageController  --}}
     @php(session_start())
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    @include('footer')
+    @include('partials.footer')
     </div>
 @endsection
 

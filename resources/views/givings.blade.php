@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 d-flex align-items-stretch" >
+        <div class="col-lg-4 d-flex align-items-stretch">
             <div class="card">
                 <img class="card-img-top" src="/images/mm.png" alt="Card image cap">
                 <div class="card-body">
@@ -65,5 +65,4 @@
     </div>
 </div>
 </body>
-@include('partials.js')
-</html>
+z</html>
