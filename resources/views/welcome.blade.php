@@ -1,9 +1,11 @@
 @extends('layouts.app')
-@include('partials.css')
-@include('partials.header')
-@section('content')
-<div >
 
+@section('title')  Welcome ot Liberation City @endsection
+
+
+@section('content')
+
+<div >
    <div class="container" style="margin-top:30px; ">
       <div class="row">
          <div class="col-lg-4 d-flex align-items-stretch">
@@ -66,5 +68,5 @@
    </div>
 
 </div>
-   @include('partials.footer')
 @endsection
+
