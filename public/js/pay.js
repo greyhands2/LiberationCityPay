@@ -1,19 +1,18 @@
 $(function(){
 
 
-$('#submit').click(function(event){
-event.preventDefault();
+$('#submit').click(function(event) {
+    event.preventDefault();
 
-var name = $('#name').val();
-var email = $('#email').val();
-var amount = $('#amount').val() * 100;
-var token = name+$('#token').val();
-checkInput(name, email, amount, token);
-document.getElementById('amount1').setAttribute = amount;
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var amount = $('#amount').val() * 100;
+    var token = name + $('#token').val();
+    if (validateInput(name, email, amount, token)) {
+        document.getElementById('amount1').setAttribute = amount;
 
-console.log(token)
+    console.log(token)
     var userPaymentDetails = new FormData();
-
 
 
     userPaymentDetails.append('name', name);
@@ -30,16 +29,16 @@ console.log(token)
         cache: false,
         mimeType: 'multiform/data',// To unable request pages to be cached
         crossDomain: true,
-        processData:false,
-        beforeSend: function() {
+        processData: false,
+        beforeSend: function () {
             $('.getmore').html('Loading...');
         },
-        success : function(data, textStatus, jqXHR){
+        success: function (data, textStatus, jqXHR) {
             $('.getmore').remove();
             $('#foodz').append(data);
             console.log(data);
 
-        },error: function(xhr){
+        }, error: function (xhr) {
 
             console.log(xhr.statusText + xhr.responseText);
 
@@ -48,7 +47,11 @@ console.log(token)
     });
 
 
+} else
+    {
 
+
+    }
     // $('#holder').empty();
 
 });
