@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @include('partials.css')
-@include('header')
+@include('partials.header')
 @section('content')
 <div >
 
@@ -66,5 +66,5 @@
    </div>
 
 </div>
-   @include('footer')
+   @include('partials.footer')
 @endsection

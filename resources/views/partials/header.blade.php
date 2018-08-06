@@ -8,7 +8,7 @@
 
             <li class="nav-item">
 
-                <a href="/" class="btn btn-primary btn-outline-success mr-sm-2"  style="
+                <a href="/" class="btn btn-primary btn-outline-success mr-sm-2" style="
                 text-decoration: none;
             color: #808080; border: 1px solid #c0c0c0; background-color: #fff;">Home <i color="#808080"
                                                                                         class="icon-home"></i></a>

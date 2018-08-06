@@ -11,7 +11,7 @@ Route::post('/login', 'AuthLogController@login');
     
     Route::get('/givehere/{wildcard}', 'DirectToRightPageController@direct');
     
-    Route::post('/UserPayDetailSubmit', 'RetrieveUserPaymentDetails@index');
+    Route::post('/savePaymentDetails', 'RetrieveUserPaymentDetails@index');
     
     //NOTE!!! for this to work i had to disable csrf token for this specicfic route in App/Http/Middleware/VerifyCsrfToken.php like this protected $except = [
     //
