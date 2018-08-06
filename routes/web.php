@@ -13,19 +13,9 @@ Route::get('/sendEmail','AuthLogController@sendEmail');
 
     Route::post('/UserPayDetailSubmit', 'RetrieveUserPaymentDetails@index');
 
-    //NOTE!!! for this to work i had to disable csrf token for this specicfic route in App/Http/Middleware/VerifyCsrfToken.php like this protected $except = [
-    //
-    //'givingLog',
-   // ];
     Route::any('givingLog', function(){
         return View::make('transaction_result');
     });
-
-//    Route::get('givingLogShow', function(){
-//
-//        return View::make('transaction_result');
-//
-//    });
 
 Auth::routes();
 
