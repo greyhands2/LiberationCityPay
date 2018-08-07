@@ -14,4 +14,10 @@ class TransactionLog extends Model
       'response_description',
       'response_full'
     ];
+
+    public function user(){
+        return static::hasOne(User::class,'user_id','id');
+    }
+
+
 }

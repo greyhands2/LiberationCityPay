@@ -1,12 +1,20 @@
 @extends('layouts.auth')
 
+@section('title') Reset Password @endsection
+
 @section('content')
-    <div class="container">
+    <div class="container"  style="margin-top:100px;" >
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">{{ __('Reset Password') }}</div>
+                    <a class="card-header" href="{{url('/')}}" align="center">
+                        <img src="{{asset('/images/liberation.png')}}" style="max-width: 30%;"
+                             class="d-inline-block align-top ">
+                    </a>
                     <div class="card-body">
+                        <h4><i class="icon-mail"></i> Reset Password
+                            <hr/>
+                        </h4>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}

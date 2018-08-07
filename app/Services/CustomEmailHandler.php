@@ -17,35 +17,38 @@ class CustomEmailHandler
 {
 
     public static function successfulRegistrationEmail($user){
-        $user = [
-            'email' => 'ogunsakin191@gmail.com',
-            'name' => 'Ogunsakin Damilola'
-        ];
-        Mail::to($user['email'])->send(new SuccessfulRegistration($user));
+        try{
+            Mail::to($user['email'])->send(new SuccessfulRegistration($user));
+        }catch( \Exception $e){
+//            dd($e);
+        }
+        return 0;
     }
 
     public static function PaymentNotification($user,$data){
-        $user = [
-            'email' => 'ogunsakin191@gmail.com',
-            'name' => 'Ogunsakin Damilola'
-        ];
-        Mail::to($user['email'])->send(new PrePaymentNofication($user,$data));
+        try{
+            Mail::to($user['email'])->send(new PrePaymentNofication($user,$data));
+        }catch( \Exception $e){
+//            dd($e);
+        }
+        return 0;
     }
 
     public static function PaymentFailed($user,$data){
-        $user = [
-            'email' => 'ogunsakin191@gmail.com',
-            'name' => 'Ogunsakin Damilola'
-        ];
-        Mail::to($user['email'])->send(new PaymentFailed($user, $data));
+        try{
+            Mail::to($user['email'])->send(new PaymentFailed($user, $data));
+        }catch( \Exception $e){
+//            dd($e);
+        }
     }
 
     public static function PaymentSuccessful($user, $data){
-        $user = [
-            'email' => 'ogunsakin191@gmail.com',
-            'name' => 'Ogunsakin Damilola'
-        ];
-        Mail::to($user['email'])->send(new PaymentSuccessful($user, $data));
+        try{
+            Mail::to($user['email'])->send(new PaymentSuccessful($user, $data));
+        }catch( \Exception $e){
+//            dd($e);
+        }
+        return 0;
     }
 
 

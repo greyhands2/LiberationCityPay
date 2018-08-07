@@ -2,6 +2,7 @@
 
 @section('title')  Welcome ot Liberation City @endsection
 
+
 @section('content')
 
 <div >
