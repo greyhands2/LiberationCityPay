@@ -29,7 +29,8 @@
             color: #808080; border: 1px solid #c0c0c0; background-color: #fff;">Members <i color="#808080"
                                                                                            class="icon-user"></i></a>
                 </li>
-                @endrole
+
+               @endrole
 
                 <li class="nav-item">
                     <a href="{{url('/logs')}}" class="btn btn-outline-secondary mr-sm-2">Transaction Log <i class="icon-user"></i></a>
