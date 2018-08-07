@@ -30,7 +30,7 @@
             color: #808080; border: 1px solid #c0c0c0; background-color: #fff;">Members <i color="#808080"
                                                                                                     class="icon-user"></i></a>
                 </li>
-               @rendrole
+               @endrole
 
                 <li class="nav-item">
                     <a href="/logs" class="btn btn-primary btn-outline-success mr-sm-2"  style=" text-decoration: none;

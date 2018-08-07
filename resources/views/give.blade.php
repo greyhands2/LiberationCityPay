@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@include('partials.css')
 
-@include('partials.header')
+
+
 @section('content')
 {{-- NOTE!!!! this view recieves all its data from the DirectToRightPageController  --}}
     @php(session_start())
@@ -23,6 +23,8 @@
                             <form id="myForm" method="post" name="form1" action="{{$aray_from_wildcard['url']}}">
                                 @csrf
                                 <div id="holder">
+
+                                @if(auth()->guest())
                                 <div class="form-group row">
                                     <label class="sr-only" for="email">Name</label>
                                     <div class="input-group mb-2">
@@ -36,8 +38,6 @@
 
                                     </div>
                                 </div>
-
-
 
                                 <div class="form-group row">
                                     <label class="sr-only" for="email">Email</label>
@@ -53,6 +53,9 @@
 
                                     </div>
                                 </div>
+                                 @endif
+
+
 
                                 <div class="form-group row">
                                     <label class="sr-only" for="email">Amount</label>
@@ -90,12 +93,12 @@
                                 <div class="row no-gutters">
                                     <div class="col-12 col-sm-6 col-md-8 "><div class="form-group row">
                                             <div class="col-sm-10">
-                                                <input type="button" id="submit"  value="Process"  style="width:90px; border: 1px solid #800080; background-color: #400040;" class="btn btn-primary ">
+                                                <input type="button" id="submit"  value="Process"  style="width:90px; border: 1px solid #fff; background-color: #400040;" class="btn btn-primary ">
                                             </div>
                                         </div></div>
 
 
-                                    <div class="col-6 col-md-4"><div class="form-group row"><img class="img-thumbnail" src="/images/isw_logo_new_combined_2.png"></div></div>
+
 
 
 
@@ -112,8 +115,13 @@
 
 
 
-
-                            <div id="feedback" class=" card-footer center" style="font-weight:bold; color:orange;"></div>
+<div class=" card-footer center container" >
+    <div id="row" >
+                            <div id="feedback" class="col-sm" style="font-weight:bold; color:orange;">
+                            </div>
+                                <div class="col-sm"><div class="form-group row"><img class="img-thumbnail" src="/images/pay.png"></div></div>
+                    </div>
+</div>
                     </div>
 
                 </div>
@@ -121,7 +129,7 @@
         </div>
     </div>
 
-        @include('partials.footer')
+
     </div>
 @endsection
 
