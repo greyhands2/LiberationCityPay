@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        CustomEmailHandler::successfulRegistrationEmail($user);
+        CustomEmailHandler::successfulRegistrationEmail($data);
         $user->attachRole(2);
         return $user;
     }

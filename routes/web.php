@@ -4,21 +4,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::post('/formSubmit', 'AuthController@register');
-Route::post('/login', 'AuthLogController@login');
-Route::get('/sendEmail','AuthLogController@sendEmail');
-
-    Route::get('/givehere/{wildcard}', 'DirectToRightPageController@direct');
-    
-    Route::post('/savePaymentDetails', 'RetrieveUserPaymentDetails@index');
-    
+Route::get('/logout', 'Auth\LoginController@logout');
 
 
-    Route::any('givingLog', function(){
-        return View::make('transaction_result');
-    });
+    Route::get('/logs','HomeController@transactionLogs')->middleware('auth');
+    Route::get('/requery','HomeController@index')->middleware('auth');
+    Route::get('/members','HomeController@members')->middleware('auth');
 
+Route::get('/givehere/{wildcard}', 'DirectToRightPageController@direct');
+Route::post('/savePaymentDetails', 'RetrieveUserPaymentDetails@index');
+Route::any('givingLog', function(){
+    return View::make('transaction_result');
+});
 
 Auth::routes();
 

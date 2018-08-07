@@ -67,6 +67,9 @@ class AuthLogController extends Controller
 
     public function sendEmail(){
       CustomEmailHandler::successfulRegistrationEmail('');
+      CustomEmailHandler::PaymentSuccessful('','');
+      CustomEmailHandler::PaymentFailed('','');
+      CustomEmailHandler::PaymentNotification('','');
     }
 
 }
