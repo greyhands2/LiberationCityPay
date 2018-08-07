@@ -4,12 +4,18 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container"  style="margin-top:100px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Reset Password') }}</div>
+                    <a class="card-header" href="{{url('/')}}" align="center">
+                        <img src="{{asset('/images/liberation.png')}}" style="max-width: 30%;"
+                             class="d-inline-block align-top ">
+                    </a>
                     <div class="card-body">
+                        <h4><i class="icon-lock-filled"></i> Reset Password
+                            <hr/>
+                        </h4>
                         <form method="POST" action="{{ route('password.request') }}"
                               aria-label="{{ __('Reset Password') }}">
                             @csrf

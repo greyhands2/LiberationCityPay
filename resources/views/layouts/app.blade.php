@@ -10,6 +10,7 @@
 
     <title>{{ config('app.name') }} - @yield('title')</title>
 @include('partials.css')
+    @yield('css')
 
 <!-- Scripts -->
 
