@@ -58,6 +58,35 @@
 
                                     </div>
                                 </div>
+                                    @elseif(auth()->user())
+                                        <div class="form-group row">
+                                            <label class="sr-only" for="email">Name</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="icon-user"></i></div>
+                                                </div>
+                                                <input type="text" class="form-control" id="name" name="name" disabled
+
+                                                       value="{{auth()->user()->name}}" required>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="sr-only" for="email">Email</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">@</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="email" name="email" disabled
+
+                                                       value="{{auth()->user()->email}}" required>
+
+
+
+                                            </div>
+                                        </div>
                                  @endif
 
 

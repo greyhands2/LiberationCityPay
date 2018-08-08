@@ -31,12 +31,20 @@ console.log('hi')
 
                 var derivedGivingType = assignGiveTypeResults;
             }
-var returnInfo = '<div class="card" style="width: 18rem;">\n' +
-    '  <ul class="list-group list-group-flush">\n' +
-    '    <li class="list-group-item">Cras justo odio</li>\n' +
-    '    <li class="list-group-item">Dapibus ac facilisis in</li>\n' +
-    '    <li class="list-group-item">Vestibulum at eros</li>\n' +
-    '  </ul>\n' +
+var returnInfo = '<div class="form-group row">\n' +
+    '<div class="input-group mb-2">\n' +
+    '<div class="input-group-prepend">\n' +
+    '<div class="input-group-text">TRANSACTION REFERENCE</div>\n' +
+    '</div>\n' +
+    '<input type="text" class="form-control" id="email" name="email" disabled value="'+txn_ref+'" required>'+
+    '</div>\n' +
+     '</div><div class="form-group row">\n' +
+    '<div class="input-group mb-2">\n' +
+    '<div class="input-group-prepend">\n' +
+    '<div class="input-group-text">AMOUNT</div>\n' +
+    '</div>\n' +
+    '<input type="text" class="form-control" id="email" name="email" disabled value="NGN'+$('#amount').val()+'.00" required>\n' +
+    '</div>\n' +
     '</div>';
 
 
@@ -58,7 +66,7 @@ var returnInfo = '<div class="card" style="width: 18rem;">\n' +
         $('#holder').html('');
         statusButton.setAttribute('value', 'Loading...');
 
-        axios.post('/savePaymentDetails', {
+        axios.post('/savePaymentDetails', {'name' : name,
         'amount': amount, 'txn_ref': txn_ref, 'cust_id' : cust_id, 'email' : email, 'giving_type' : derivedGivingType
         }).then(function (response){
 
