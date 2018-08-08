@@ -20,35 +20,32 @@ class CustomEmailHandler
         try{
             Mail::to($user['email'])->send(new SuccessfulRegistration($user));
         }catch( \Exception $e){
-//            dd($e);
         }
-        return 0;
+        return true;
     }
 
     public static function PaymentNotification($user,$data){
         try{
             Mail::to($user['email'])->send(new PrePaymentNofication($user,$data));
         }catch( \Exception $e){
-//            dd($e);
         }
-        return 0;
+        return true;
     }
 
     public static function PaymentFailed($user,$data){
         try{
             Mail::to($user['email'])->send(new PaymentFailed($user, $data));
         }catch( \Exception $e){
-//            dd($e);
         }
+        return true;
     }
 
     public static function PaymentSuccessful($user, $data){
         try{
             Mail::to($user['email'])->send(new PaymentSuccessful($user, $data));
         }catch( \Exception $e){
-//            dd($e);
         }
-        return 0;
+        return true;
     }
 
 
