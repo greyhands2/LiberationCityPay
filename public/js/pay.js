@@ -20,21 +20,7 @@ console.log('hi')
 
                 var derivedGivingType = assignGiveTypeResults;
             }
-var returnInfo = '<div class="form-group row">\n' +
-    '<div class="input-group mb-2">\n' +
-    '<div class="input-group-prepend">\n' +
-    '<div class="input-group-text">TRANSACTION REFERENCE</div>\n' +
-    '</div>\n' +
-    '<input type="text" class="form-control" id="email" name="email" disabled value="'+txn_ref+'" required>'+
-    '</div>\n' +
-     '</div><div class="form-group row">\n' +
-    '<div class="input-group mb-2">\n' +
-    '<div class="input-group-prepend">\n' +
-    '<div class="input-group-text">AMOUNT</div>\n' +
-    '</div>\n' +
-    '<input type="text" class="form-control" id="email" name="email" disabled value="NGN'+$('#amount').val()+'.00" required>\n' +
-    '</div>\n' +
-    '</div>';
+
 
 
     // userPaymentDetails.append('product_id', product_id);
@@ -52,14 +38,31 @@ var returnInfo = '<div class="form-group row">\n' +
 
 
 
-        $('#holder').html('');
+
         statusButton.setAttribute('value', 'Loading...');
 
         axios.post('/savePaymentDetails', {'name' : name,
         'amount': amount, 'txn_ref': txn_ref, 'cust_id' : cust_id, 'email' : email, 'giving_type' : derivedGivingType
         }).then(function (response){
             var payload = response.data.data;
-            console.log(payload)
+            console.log(payload);
+            var returnInfo = '<div class="form-group row">\n' +
+                '<div class="input-group mb-2">\n' +
+                '<div class="input-group-prepend">\n' +
+                '<div class="input-group-text">TRANSACTION REFERENCE</div>\n' +
+                '</div>\n' +
+                '<input type="text" class="form-control" id="email" name="email" disabled value="'+payload.transaction_reference+'" required>'+
+                '</div>\n' +
+                '</div><div class="form-group row">\n' +
+                '<div class="input-group mb-2">\n' +
+                '<div class="input-group-prepend">\n' +
+                '<div class="input-group-text">AMOUNT</div>\n' +
+                '</div>\n' +
+                '<input type="text" class="form-control" id="email" name="email" disabled value="NGN'+$('#amount').val()+'.00" required>\n' +
+                '</div>\n' +
+                '</div>';
+
+
 
             document.getElementById('product_id').setAttribute('value', payload.product_id);
             document.getElementById('pay_item_id').setAttribute('value', payload.item_id);
@@ -80,6 +83,7 @@ var returnInfo = '<div class="form-group row">\n' +
             $('#feedback').html('');
             document.getElementById('feedback').setAttribute('style', 'color: #117A65');
 $('#feedback').append('SUCCESS!!');
+            $('#holder').html('');
             $('#holder').append(returnInfo);
 
 
