@@ -107,7 +107,7 @@
                                        value=""/>
                                 <input name="pay_item_id" id="pay_item_id" type="hidden"
                                        value=""/>
-                                <input name="amount1" id="amount1" type="hidden" value=""/>
+                                <input name="amount" id="amount" type="hidden" value=""/>
                                 <input name="currency" id="currency" type="hidden"
                                        value=""/>
                                 <input name="site_redirect_url" id="site_redirect_url" type="hidden"

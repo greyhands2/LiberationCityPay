@@ -11,19 +11,8 @@ $('#submit').click(function(event) {
     var statusButton = document.getElementById('submit');
     if (validateInput(name, email, amount)) {
 console.log('hi')
-        document.getElementById('amount1').setAttribute('value', amount);
-        document.getElementById('cust_id').setAttribute('value', token);
-        document.getElementById('cust_name').setAttribute('value', name);
 
-        var product_id = $('#product_id').val();
-        var pay_item_id = $('#pay_item_id').val();
-        var currency = $('#currency').val();
-        var site_redirect_url = $('#site_redirect_url').val();
-        var txn_ref = $('#txn_ref').val();
-        var cust_id = $('#cust_id').val();
-        var site_name = $('#site_name').val();
-        var cust_name = $('#cust_name').val();
-        var hash = $('#hash').val();
+
         var giving_type = $('#giving_type').val();
         var assignGiveTypeResults = assignGiveType(giving_type);
 
@@ -69,7 +58,20 @@ var returnInfo = '<div class="form-group row">\n' +
         axios.post('/savePaymentDetails', {'name' : name,
         'amount': amount, 'txn_ref': txn_ref, 'cust_id' : cust_id, 'email' : email, 'giving_type' : derivedGivingType
         }).then(function (response){
+            var payload = response.data.data;
+            console.log(payload)
 
+            document.getElementById('product_id').setAttribute('value', payload.product_id);
+            document.getElementById('payment_item_id').setAttribute('value', payload.item_id);
+            document.getElementById('amount').setAttribute('value', payload.amount);
+            document.getElementById('currency').setAttribute('value', payload.currency);
+            document.getElementById('site_redirect_url').setAttribute('value', payload.redirect_url);
+            document.getElementById('txn_ref').setAttribute('value', payload.transaction_reference);
+            document.getElementById('cust_id').setAttribute('value', payload.user_id);
+            document.getElementById('site_name').setAttribute('value', payload.site_name);
+            document.getElementById('cust_name').setAttribute('value', payload.user_name);
+            document.getElementById('hash').setAttribute('value', payload.hash);
+            document.getElementById('myForm').setAttribute('action', payload.action_url);
 
             statusButton.setAttribute('value', '');
             statusButton.setAttribute('value', 'Pay Now');
@@ -80,7 +82,7 @@ var returnInfo = '<div class="form-group row">\n' +
 $('#feedback').append('SUCCESS!!');
             $('#holder').append(returnInfo);
 
-                console.log(response);
+
             })
             .catch(function (error) {
                 console.log(error);
