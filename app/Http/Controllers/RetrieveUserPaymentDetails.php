@@ -23,7 +23,6 @@ class RetrieveUserPaymentDetails extends Controller
             if($user != null) {
                 Auth::loginUsingId($user->id);
             }else{
-
                 $password = strtoupper(str_random(6));
                 $data['password'] = $password;
                 $user = User::create([
@@ -70,6 +69,5 @@ class RetrieveUserPaymentDetails extends Controller
                 'message' => 'Unable to process transaction',
                 'data' => []
             ],422);
-
     }
 }
