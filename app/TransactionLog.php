@@ -10,13 +10,14 @@ class TransactionLog extends Model
       'user_id',
       'transaction_reference',
       'amount',
+      'payment_type_id',
       'response_code',
       'response_description',
       'response_full'
     ];
 
     public function user(){
-        return static::hasOne(User::class,'user_id','id');
+        return static::hasOne(User::class,'id','user_id');
     }
 
 

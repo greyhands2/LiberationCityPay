@@ -9,12 +9,6 @@
 namespace App\Services;
 
 
-
-use App\Profile;
-use Exception;
-
-
-
 class InterswitchConfig
 {
 
@@ -46,13 +40,16 @@ class InterswitchConfig
 
     public $pay_direct_product_id        = '1706';
 
+     public $currency = '566';
+
     public function __construct(){
 
-        $this->requestActionUrl = $this->web_pay_request_test_url;
-        $this->queryActionUrl   = $this->web_pay_test_query_url;
-        $this->item_id = $this->web_pay_item_id;
-        $this->product_id = $this->web_pay_product_id;
-
+        $this->requestActionUrl = $this->pay_direct_request_test_url;
+        $this->queryActionUrl   = $this->pay_direct_query_test_url;
+        $this->item_id = $this->pay_direct_pay_item_id;
+        $this->product_id = $this->pay_direct_product_id;
+        $this->redirect_url = url('/givingLog');
+        $this->siteUrl = url('/');
     }
 
     public function queryHash($txnRef){
@@ -60,23 +57,13 @@ class InterswitchConfig
         return openssl_digest($toHash, "SHA512");
     }
 
-    public function transactionHash($txnRef,$amount,$redirectUrl){
-        $info = [
-            'reference'  => $txnRef,
-            'user_id'        => auth()->user()->id,
-            'profile'        => Profile::getUserInfo(auth()->user()->id),
-            'amount'         => $amount,
-            'gateway_id'     => 1,
-            'payment_status' => 0
-        ];
-        PortalCustomNotificationHandler::interswitchPrepayment($info);
-
-        $toHash = $txnRef.$this->product_id.$this->item_id.$amount.$redirectUrl.$this->mac_key;
+    public function transactionHash($txnRef,$amount){
+        $toHash = $txnRef.$this->product_id.$this->item_id.$amount.$this->redirect_url.$this->mac_key;
         return openssl_digest($toHash, "SHA512");
     }
 
-    public function cheatTransactionHash($txnRef,$amount,$redirectUrl){
-        $toHash = $txnRef.$this->product_id.$this->item_id.$amount.$redirectUrl.$this->mac_key;
+    public function cheatTransactionHash($txnRef,$amount){
+        $toHash = $txnRef.$this->product_id.$this->item_id.$amount.$this->redirect_url.$this->mac_key;
         return openssl_digest($toHash, "SHA512");
     }
 
@@ -109,9 +96,9 @@ class InterswitchConfig
             return [
                 'reference' => $txnRef,
                 'status' => 0,
-                'responseCode' => '--',
-                'responseDescription' => 'Could not confirm payment status. Bad Internet Connection',
-                'responseFull' => '0',
+                'response_code' => '--',
+                'response_description' => 'Could not confirm payment status. Bad Internet Connection',
+                'response_full' => '0',
                 'amount' => '0'
             ];
         }else{
@@ -127,14 +114,13 @@ class InterswitchConfig
             return [
                 'reference' => $txnRef,
                 'status' => $status,
-                'responseCode' => $responseCode,
-                'responseDescription' => $responseDescription,
-                'responseFull' => json_encode($response,true),
+                'response_code' => $responseCode,
+                'response_description' => $responseDescription,
+                'response_full' => json_encode($response,true),
                 'amount' => $amount
             ];
         }
     }
-
 
 
 }
