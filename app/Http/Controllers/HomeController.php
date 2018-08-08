@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PaymentType;
+use App\Services\CustomEmailHandler;
 use App\TransactionLog;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->InterswitchConfig = new \App\Services\InterswitchConfig();
     }
 
     /**
@@ -24,8 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         return view('home');
     }
 
@@ -75,5 +75,54 @@ class HomeController extends Controller
         return view('members',compact('members'));
 
     }
+
+    public function paymentConfirmation(Request $r){
+            $response = $this->InterswitchConfig->requery($r->txnref,$r->amount);
+            if($response['responseCode'] == '00' || $response['responseCode'] == '11' || $response['responseCode'] == '10'){
+                $paymentInfo  = [
+                    'status'  => 1,
+                    'message' => $response['responseDescription'],
+                    'amount' => $response['amount'],
+                    'reference' => $response['reference']
+                ];
+
+                $paymentData = TransactionLog::where('transaction_reference',$response['reference'])->first();
+                $paymentData->response_code        = $response['responseCode'];
+                $paymentData->response_description = $response['responseDescription'];
+                $paymentData->response_full        = $response['responseFull'];
+                $paymentData->update();
+                CustomEmailHandler::PaymentSuccessful(auth()->user(),$paymentData);
+
+            }
+            else{
+                $paymentInfo  = [
+                    'status'  => 0,
+                    'message' => $response['responseDescription'],
+                    'amount' => $response['amount'],
+                    'reference' => $response['reference']
+                ];
+
+                $paymentData = TransactionLog::where('reference',$response['reference'])->first();
+                $paymentData->response_code        = $response['responseCode'];
+                $paymentData->response_description = $response['responseDescription'];
+                $paymentData->response_full        = $response['responseFull'];
+                $paymentData->update();
+
+                CustomEmailHandler::PaymentFailed(auth()->user(),$paymentData);
+
+            }
+            session()->put('paymentInfo',$paymentInfo);
+           redirect(url('/payment-confirmation'));
+    }
+
+    public function paymentConfirmationPage(){
+        $paymentInfo = session()->get('paymentInfo');
+        return view('transaction_result',compact('paymentInfo'));
+    }
+
+    public function requery(){
+
+    }
+
 
 }
