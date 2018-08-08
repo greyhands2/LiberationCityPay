@@ -47,6 +47,7 @@ class RetrieveUserPaymentDetails extends Controller
             'site_name' => $this->Interswitch->siteUrl,
             'redirect_url' => $this->Interswitch->redirect_url,
             'user_id' => auth()->id(),
+            'user_name' => auth()->user()->name,
             'payment_type_id' => $data['giving_type'],
             'transaction_reference' => $reference,
             'amount' => $data['amount'],
