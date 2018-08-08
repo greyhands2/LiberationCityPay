@@ -3,8 +3,12 @@
 @include('partials.header')
 @section('content')
     {{-- NOTE!!!! this view recieves all its data from the DirectToRightPageController  --}}
-    @php(session_start())
-@php($variableName = session('payload'))
+
+
+    @php
+    $variableName = session()->get('payload')
+    @endphp
+
 {{$variableName}}
     <div id="app">
 
