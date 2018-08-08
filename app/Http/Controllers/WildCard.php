@@ -14,7 +14,7 @@
             //instantiate wildcard1 class for retrieving array details
             $this->pre = new Wildcard1();
             // one and only instantiation of the InterswitchConfig class
-            $this->obj1 = new InterswitchConfig($this->pre->pre_payment_details['product_id'], $this->pre->pre_payment_details['pay_item_id'], $this->pre->pre_payment_details['amount'], $this->pre->pre_payment_details['transac_ref'], $this->pre->pre_payment_details['cust_id'], $this->pre->pre_payment_details['cust_name'], $this->pre->pre_payment_details['site_redirect_url'], $this->pre->pre_payment_details['hash']);
+            $this->obj1 = new InterswitchConfig($this->pre->pre_payment_details['product_id'], $this->pre->pre_payment_details['pay_item_id'], $this->pre->pre_payment_details['amount'], $this->pre->pre_payment_details['transaction_reference'], $this->pre->pre_payment_details['cust_id'], $this->pre->pre_payment_details['cust_name'], $this->pre->pre_payment_details['site_redirect_url'], $this->pre->pre_payment_details['hash']);
 // serialize the class call object into a viarable save
             $this->save = serialize($this->obj1);
             
