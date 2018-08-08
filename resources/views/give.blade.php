@@ -1,26 +1,31 @@
 @extends('layouts.app')
 
-
+@section('title') Give @endsection
 
 @section('content')
 {{-- NOTE!!!! this view recieves all its data from the DirectToRightPageController  --}}
-    @php(session_start())
-    @php(session(['payload'=>$aray_from_wildcard['arr']['serialized_obj']])  )
+    @php
+      session()->put('payload',$array_from_wildcard['arr']['serialized_obj'])
+    @endphp
+
 
     <div id="app">
-
-{{--{{$_SESSION['payload'] = $aray_from_wildcard['arr']['serialized_obj']}}--}}
 
         <div class="container sci" style=" margin-top:30px; ">
             <div class="row">
                 <div class="col align-self-center">
 
-                    <div class="card" >
+                    <div class="card">
+
+                        @if(auth()->guest())
                         <div id="header" class=" card-header center">Give as a Guest</div>
+                        @elseif(auth()->user())
+                        <div id="header" class=" card-header center">Welcome back {{auth()->user()->name}}</div>
+                        @endif
 
                         <div class="card-body" >
 
-                            <form id="myForm" method="post" name="form1" action="{{$aray_from_wildcard['url']}}">
+                            <form id="myForm" method="post" name="form1" action="{{$array_from_wildcard['url']}}">
                                 @csrf
                                 <div id="holder">
 
@@ -104,20 +109,17 @@
 
                                 <!-- REQUIRED HIDDEN FIELDS -->
                                 <!-- <input name="email" id="email" type="text" class="" placeholder="" required> -->
-                                <input name="product_id" id="product_id"  type="hidden" value="{{$aray_from_wildcard['arr']['product_id']}}" />
-                                <input name="pay_item_id" id="pay_item_id"  type="hidden" value="{{$aray_from_wildcard['arr']['pay_item_id']}}" />
-                                <input name="amount1" id="amount1"  type="hidden" value="{{$aray_from_wildcard['arr']['amount']}}" />
-                                <input name="currency" id="currency"  type="hidden" value="{{$aray_from_wildcard['arr']['currency']}}" />
-                                <input name="site_redirect_url" id="site_redirect_url"  type="hidden" value="{{$aray_from_wildcard['arr']['site_redirect_url']}}"/>
-                                <input name="txn_ref" type="hidden" id="txn_ref"  value="{{$aray_from_wildcard['arr']['transac_ref']}}" />
-                                <input name="cust_id" type="hidden" id="cust_id"  value="{{$aray_from_wildcard['arr']['cust_id']}}"/>
-                                <input name="site_name" type="hidden" id="site_name"  value="{{$aray_from_wildcard['arr']['site_name']}}"/>
-                                <input name="cust_name" type="hidden" id="cust_name"  value="{{$aray_from_wildcard['arr']['cust_name']}}" />
-                                <input name="hash" type="hidden" id="hash"  value="{{$aray_from_wildcard['arr']['hash']}}" />
+                                <input name="product_id" id="product_id"  type="hidden" value="{{$array_from_wildcard['arr']['product_id']}}" />
+                                <input name="pay_item_id" id="pay_item_id"  type="hidden" value="{{$array_from_wildcard['arr']['pay_item_id']}}" />
+                                <input name="amount1" id="amount1"  type="hidden" value="" />
+                                <input name="currency" id="currency"  type="hidden" value="{{$array_from_wildcard['arr']['currency']}}" />
+                                <input name="site_redirect_url" id="site_redirect_url"  type="hidden" value="{{$array_from_wildcard['arr']['site_redirect_url']}}"/>
+                                <input name="txn_ref" type="hidden" id="txn_ref"  value="{{$array_from_wildcard['arr']['transaction_reference']}}" />
+                                <input name="cust_id" type="hidden" id="cust_id"  value=""/>
+                                <input name="site_name" type="hidden" id="site_name"  value="{{$array_from_wildcard['arr']['site_name']}}"/>
+                                <input name="cust_name" type="hidden" id="cust_name"  value="" />
+                                <input name="hash" type="hidden" id="hash"  value="" />
                                 <input name="giving_type" type="hidden" id="giving_type"  value="{{$page_content_determiner}}" />
-
-
-
                                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                                 <div class="row no-gutters">
                                     <div class="col-12 col-sm-6 col-md-8 "><div class="form-group row">
@@ -125,19 +127,7 @@
                                                 <input type="button" id="submit"  value="Process"  style="width:90px; border: 1px solid #fff; background-color: #400040;" class="btn btn-primary ">
                                             </div>
                                         </div></div>
-
-
-
-
-
-
-
-
                                 </div>
-
-
-
-
                             </form>
                         </div>
 
