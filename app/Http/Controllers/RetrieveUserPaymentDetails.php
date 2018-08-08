@@ -23,7 +23,6 @@ class RetrieveUserPaymentDetails extends Controller
             if($user != null) {
                 Auth::loginUsingId($user->id);
             }else{
-
                 $password = strtoupper(str_random(6));
                 $data['password'] = $password;
                 $user = User::create([
@@ -38,7 +37,7 @@ class RetrieveUserPaymentDetails extends Controller
         }
         $user = auth()->user();
         $reference = strtoupper(str_random(8));
-        $getHash = $this->Interswitch->transactionHash($data['txn_ref'],$data['amount']);
+        $getHash = $this->Interswitch->transactionHash($reference,$data['amount']);
         $paymentInfo = [
             'hash' => $getHash,
             'product_id' => $this->Interswitch->product_id,
@@ -70,6 +69,5 @@ class RetrieveUserPaymentDetails extends Controller
                 'message' => 'Unable to process transaction',
                 'data' => []
             ],422);
-
     }
 }

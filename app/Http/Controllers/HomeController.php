@@ -77,6 +77,7 @@ class HomeController extends Controller
     }
 
     public function paymentConfirmation(Request $r){
+        dd($r,$_POST);
             $response = $this->InterswitchConfig->requery($r->txnref,$r->amount);
             if($response['responseCode'] == '00' || $response['responseCode'] == '11' || $response['responseCode'] == '10'){
                 $paymentInfo  = [

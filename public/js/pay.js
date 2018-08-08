@@ -62,7 +62,7 @@ var returnInfo = '<div class="form-group row">\n' +
             console.log(payload)
 
             document.getElementById('product_id').setAttribute('value', payload.product_id);
-            document.getElementById('payment_item_id').setAttribute('value', payload.item_id);
+            document.getElementById('pay_item_id').setAttribute('value', payload.item_id);
             document.getElementById('amount').setAttribute('value', payload.amount);
             document.getElementById('currency').setAttribute('value', payload.currency);
             document.getElementById('site_redirect_url').setAttribute('value', payload.redirect_url);
