@@ -181,7 +181,7 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
         $(function () {
-            $("#transactions").datatable({
+            $("#transactions").DataTable({
                 bSort: false
             });
             $('table #transactions').on('click', '.requery', function () {
