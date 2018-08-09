@@ -26,30 +26,37 @@ class InterswitchConfig
 
     public $pay_direct_request_live_url  = 'https://webpay.interswitchng.com/paydirect/pay';
 
-    public $pay_direct_live_query_url    = 'https://webpay.interswitchng.com/paydirect/api/v1/gettransaction.json';
+    public $pay_direct_query_live_url    = 'https://webpay.interswitchng.com/paydirect/api/v1/gettransaction.json';
 
     public static $ActionUrl             = 'https://sandbox.interswitchng.com/webpay/pay';
 
     public $mac_key                      = 'D3D1D05AFE42AD50818167EAC73C109168A0F108F32645C8B59E897FA930DA44F9230910DAC9E20641823799A107A02068F7BC0F4CC41D2952E249552255710F';
 
-    public $web_pay_item_id              = '101';
+    public $web_pay_item_id              = 101;
 
-    public $web_pay_product_id           = '6205';
+    public $web_pay_product_id           = 6205;
 
-    public $pay_direct_pay_item_id       = '101';
+    public $pay_direct_pay_item_id       = 101;
 
-    public $pay_direct_product_id        = '1706';
+    public $pay_direct_product_id        = 1706;
 
-     public $currency = '566';
+     public $currency = 566;
 
     public function __construct(){
 
-        $this->requestActionUrl = $this->pay_direct_request_test_url;
-        $this->queryActionUrl   = $this->pay_direct_query_test_url;
-        $this->item_id = $this->pay_direct_pay_item_id;
-        $this->product_id = $this->pay_direct_product_id;
+//        $this->requestActionUrl = $this->pay_direct_request_test_url;
+//        $this->queryActionUrl   = $this->pay_direct_query_test_url;
+//        $this->item_id = $this->pay_direct_pay_item_id;
+//        $this->product_id = $this->pay_direct_product_id;
+
+        $this->requestActionUrl = $this->web_pay_request_test_url;
+        $this->queryActionUrl   = $this->web_pay_test_query_url;
+        $this->item_id = $this->web_pay_item_id;
+        $this->product_id = $this->web_pay_product_id;
+
         $this->redirect_url = url('/givingLog');
         $this->siteUrl = url('/');
+
     }
 
     public function queryHash($txnRef){

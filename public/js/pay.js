@@ -6,7 +6,7 @@ $('#submit').click(function(event) {
 
     var name = $('#name').val();
     var email = $('#email').val();
-    var amount = $('#amount').val() * 100;
+    var amount = $('#amount1').val() * 100;
     var token = name + $('#token').val();
     var statusButton = document.getElementById('submit');
     if (validateInput(name, email, amount)) {
@@ -43,7 +43,8 @@ console.log('hi')
 
         axios.post('/savePaymentDetails', {'name' : name,
         'amount': amount, 'txn_ref': txn_ref, 'cust_id' : cust_id, 'email' : email, 'giving_type' : derivedGivingType
-        }).then(function (response){
+        })
+            .then(function (response){
             var payload = response.data.data;
             console.log(payload);
             var returnInfo = '<div class="form-group row">\n' +
@@ -58,7 +59,7 @@ console.log('hi')
                 '<div class="input-group-prepend">\n' +
                 '<div class="input-group-text">AMOUNT</div>\n' +
                 '</div>\n' +
-                '<input type="text" class="form-control" id="email" name="email" disabled value="NGN'+$('#amount').val()+'.00" required>\n' +
+                '<input type="text" class="form-control" id="email" name="email" disabled value="NGN'+$('#amount1').val()+'.00" required>\n' +
                 '</div>\n' +
                 '</div>';
 
