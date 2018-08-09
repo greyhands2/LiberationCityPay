@@ -12,7 +12,7 @@
 
 
             <div class="card">
-               <img class="card-img-top" src="/images/mm.png" alt="Card image cap"/>
+               <img class="card-img-top img-fluid" src="/images/tite.jpg" alt="Card image cap" style="height:250px;"/>
                <div class="card-body">
                   <h5 class="card-title">Pay Your Tithe</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
@@ -31,7 +31,7 @@
          <div  class="col-lg-4 d-flex align-items-stretch" >
 
             <div class="card">
-               <img class="card-img-top" src="/images/mm.png" alt="Card image cap"/>
+               <img class="card-img-top img-fluid" src="/images/offer.jpg" alt="Card image cap"  style="height:250px;"/>
                <div class="card-body">
                   <h5 class="card-title">Give Your Offering</h5>
                   <p class="card-text">This card has supporting text below as a natural lead-in to additional
@@ -54,7 +54,7 @@
 
          <div class="col-lg-4 d-flex align-items-stretch" >
             <div class="card">
-               <img class="card-img-top" src="/images/mm.png" alt="Card image cap">
+               <img class="card-img-top img-fluid" src="/images/par.jpg" alt="Card image cap" style="height:250px;">
                <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
