@@ -28,7 +28,7 @@
                                 <div id="holder">
 
                                     @if(auth()->guest())
-                                        <div class="form-group row">
+                                        <div class="form-group">
                                             <label class="sr-only" for="email">Name</label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
@@ -42,7 +42,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group row">
+                                        <div class="form-group">
                                             <label class="sr-only" for="email">Email</label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
@@ -56,7 +56,7 @@
                                             </div>
                                         </div>
                                     @elseif(auth()->user())
-                                        <div class="form-group row">
+                                        <div class="form-group">
                                             <label class="sr-only" for="email">Name</label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
@@ -70,7 +70,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group row">
+                                        <div class="form-group">
                                             <label class="sr-only" for="email">Email</label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
@@ -86,13 +86,13 @@
                                     @endif
 
 
-                                    <div class="form-group row">
+                                    <div class="form-group">
                                         <label class="sr-only" for="email">Amount</label>
                                         <div class="input-group mb-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="icon-dollar"></i></div>
                                             </div>
-                                            <input type="number" class="form-control" id="amount" name="amount"
+                                            <input type="number" class="form-control" id="amount1" name="amount"
 
                                                    placeholder="Amount e.g 500" required>
 

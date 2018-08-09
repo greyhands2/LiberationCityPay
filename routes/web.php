@@ -9,7 +9,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 
     Route::get('/logs','HomeController@transactionLogs')->middleware('auth');
-    Route::get('/requery','HomeController@requery')->middleware('auth');
+    Route::get('/requery/{id}','HomeController@requery')->middleware('auth');
     Route::get('/members','HomeController@members')->middleware('auth');
 
 Route::get('/givehere/{wildcard}', 'DirectToRightPageController@direct');

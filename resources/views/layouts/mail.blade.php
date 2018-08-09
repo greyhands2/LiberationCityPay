@@ -12,17 +12,12 @@
     <style>
        @media screen and  (max-width : 420px){
           .mail-view {
-              max-width: 120%;
+              max-width: 90%;
           }
        }
-       @media screen and  (min-width : 421px) and (max-width : 919px){
+       @media screen and  (min-width : 421px){
            .mail-view{
                max-width: 65%;
-           }
-       }
-       @media screen and  (min-width : 920px){
-           .mail-view{
-               max-width: 50%;
            }
        }
     </style>

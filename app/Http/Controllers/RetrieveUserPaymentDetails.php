@@ -35,7 +35,6 @@ class RetrieveUserPaymentDetails extends Controller
                 Auth::loginUsingId($user->id);
             }
         }
-        $user = auth()->user();
         $reference = strtoupper(str_random(8));
         $getHash = $this->Interswitch->transactionHash($reference,$data['amount']);
         $paymentInfo = [
@@ -56,18 +55,21 @@ class RetrieveUserPaymentDetails extends Controller
             'action_url' => $this->Interswitch->requestActionUrl
         ];
         $saveLog = TransactionLog::create($paymentInfo);
-        $sendPaymentNotification = CustomEmailHandler::PaymentNotification($data,$paymentInfo);
-        if($saveLog AND $sendPaymentNotification){
+        CustomEmailHandler::PaymentNotification($data,$paymentInfo);
+        if($saveLog){
             return response()->json([
                 'status' => 200,
                 'message' => 'Processed. Click on Pay Now',
                 'data' => $paymentInfo
             ],200);
         }
-            return response()->json([
+        return response()->json([
                 'status' => 422,
                 'message' => 'Unable to process transaction',
                 'data' => []
             ],422);
     }
 }
+
+
+

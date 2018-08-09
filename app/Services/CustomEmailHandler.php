@@ -20,6 +20,7 @@ class CustomEmailHandler
         try{
             Mail::to($user['email'])->send(new SuccessfulRegistration($user));
         }catch( \Exception $e){
+            dd($e);
         }
         return true;
     }
