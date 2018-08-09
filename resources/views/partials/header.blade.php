@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light" style="border: 1px solid #dedbda;">
-    <a class="navbar-brand" href="{{url('/')}}">
+    <a class="navbar-brand" href="https://www.liberationcity.org/">
         <img src="{{asset('/images/liberation.png')}}" style="width:50%; " class="d-inline-block align-top" alt="">
     </a>
 

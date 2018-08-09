@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.liberationcity.org/wp-content/uploads/2018/04/glc-fav.png"/>
     <title>{{ config('app.name') }} - @yield('title')</title>
 @include('partials.css')
     @yield('css')
