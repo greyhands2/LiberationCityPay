@@ -16,11 +16,11 @@ class SuccessfulRegistration extends Mailable
      *
      * @return void
      */
-    public $user;
+    public $data;
 
-    public function __construct($user)
+    public function __construct($data)
     {
-        $this->user = $user;
+        $this->data = $data;
     }
 
     /**

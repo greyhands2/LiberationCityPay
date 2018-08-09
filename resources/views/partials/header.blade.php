@@ -8,7 +8,7 @@
         <div class="form-inline my-2 my-lg-0">
             <li class="nav-item">
 
-                <a href="{{url('/')}}" class="btn btn-outline-primary mr-sm-2" >Home <i
+                <a href="{{url('/')}}" class="btn btn-outline-primary mr-sm-2" >Give <i
                         class="icon-home"></i></a>
 
             </li>

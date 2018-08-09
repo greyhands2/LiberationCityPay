@@ -4,7 +4,7 @@
 
 @section('content')
             <h5 class="card-title">Registration Successful </h5>
-            <p class="card-text">Hi, {{$user['name']}}, an account has been created for you on our website, you
+            <p class="card-text">Hi, {{$data['name']}}, an account has been created for you on our website, you
                 can login to you account through the link below</p>
             <table class="table table-responsive">
                 <tbody>
