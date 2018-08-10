@@ -122,7 +122,7 @@ class InterswitchConfig
                 'reference' => $txnRef,
                 'status' => $status,
                 'response_code' => $responseCode,
-                'response_description' => $responseDescription,
+                'response_description' => $responseDescription = null ? "Transaction error" : $responseDescription,
                 'response_full' => json_encode($response,true),
                 'amount' => $amount
             ];

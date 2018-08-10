@@ -13,11 +13,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Members</h5>
-                        <table id="transactions" class="table table-responsive">
-                            <thead>
+                        <table id="transactions" class="table table-responsive table-responsive table-striped table-bordered">
+                            <thead class="bg-secondary">
                             <tr>
                                 <th>Email</th>
                                 <th>Name</th>
+                                <th>Joined</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -26,6 +27,7 @@
                                 <tr>
                                     <td>{{$member->email}}</td>
                                     <td>{{$member->name}}</td>
+                                    <td>{{date('d, D M Y G:i A', strtotime($member->created_at))}}</td>
                                 </tr>
                             @endforeach
                             @endrole
@@ -35,6 +37,7 @@
                                     You do not have the permission to see the information on this page
                                 </td>
                             </tr>
+                            @endrole
                             </tbody>
                         </table>
                     </div>
@@ -47,30 +50,3 @@
 @endsection
 
 
-@section('javascript')
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(function () {
-            $("#transactions").datatable({
-                bSort: false
-            });
-            $('table #transactions').on('click', '.requery', function () {
-                var id = $(this).val();
-                axios.post('/requery', {
-                    id: id
-                })
-                    .then(function (response) {
-                        console.log(response.data)
-                    })
-                    .catch(function (error) {
-                        console.log(error.response.data)
-                    })
-                _
-            })
-        })
-    </script>
-@endsection

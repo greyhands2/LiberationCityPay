@@ -32,7 +32,7 @@
 
             <div class="card">
                <div class="card-header" align="center">
-                  <a href="/givehere/tithe"  class="btn btn-primary"
+                  <a href="/givehere/offering"  class="btn btn-primary"
                      style="border: 1px solid #800080; background-color: #400040;"><strong>PAY OFFERING </strong><i
                              class="icon-mail"></i></a>
                </div>
@@ -55,7 +55,7 @@
          <div class="col-lg-4 d-flex align-items-stretch" >
             <div class="card">
                <div class="card-header" align="center">
-                  <a href="/givehere/tithe"  class="btn btn-primary"
+                  <a href="/givehere/partnership"  class="btn btn-primary"
                      style="border: 1px solid #800080; background-color: #400040;"><strong>PAY PARTNERSHIP </strong><i
                              class="icon-mail"></i></a>
                </div>

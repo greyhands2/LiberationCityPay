@@ -34,7 +34,7 @@
             <div class="mail-view ">
                 <div class="card mb-3">
                     <a class="card-header" href="{{url('/')}}">
-                        <img src="{{asset('/images/liberation.png')}}" style="max-width: 30%;" class="d-inline-block align-top ">
+                        <img src="https://www.liberationcity.org/wp-content/uploads/2018/04/liberation-city-logo-1.png" style="max-width: 30%;" class="d-inline-block align-top ">
                     </a>
                     @yield('inline-image')
                     <div class="card-body" align="left">
