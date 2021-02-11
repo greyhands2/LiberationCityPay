@@ -10,7 +10,7 @@ $('#submit').click(function(event) {
     var token = name + $('#token').val();
     var statusButton = document.getElementById('submit');
     if (validateInput(name, email, amount)) {
-console.log('hi')
+
 
 
         var giving_type = $('#giving_type').val();
@@ -151,9 +151,7 @@ function assignGiveType(giveTypeString){
             return_var = 3;
             break;
         default:
-            return_var = 0;
-
-
+            return_var = 1;
     }
     return return_var;
 }
